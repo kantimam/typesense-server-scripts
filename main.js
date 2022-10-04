@@ -75,6 +75,11 @@ let schema = {
             name: 'shortDescription',
             type: 'string',
             facet: false
+        },
+        {
+            name: 'isGuestEvent',
+            type: 'bool',
+            facet: true
         }
     ],
     default_sorting_field: 'datetime'
@@ -113,6 +118,16 @@ documents.forEach(d => {
     if (d.datetime && !isNaN(d.datetime)) {
         d.datetime = Number(new Date(Number(d.datetime)).getTime());
     } else d.datetime = 0;
+
+    const isGuest = Math.random() > 0.7;
+    d.isGuestEvent = isGuest ? true : false;
+    if (isGuest) {
+        d.eventType = "Gastveranstaltung"
+    } else if (d.eventType = "Gastveranstaltung") {
+        d.eventType = "International"
+    }
+
+    if (!d.shortDescription) d.shortDescription = ""
 })
 
 async function importConcertDocuments() {
