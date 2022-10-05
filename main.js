@@ -123,7 +123,7 @@ documents.forEach(d => {
     d.isGuestEvent = isGuest ? true : false;
     if (isGuest) {
         d.eventType = "Gastveranstaltung"
-    } else if (d.eventType = "Gastveranstaltung") {
+    } else if (d.eventType === "Gastveranstaltung") {
         d.eventType = "International"
     }
 
