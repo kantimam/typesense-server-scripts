@@ -130,6 +130,9 @@ documents.forEach(d => {
     if (!d.shortDescription) d.shortDescription = ""
 })
 
+
+
+
 async function importConcertDocuments() {
     try {
         // Delete if the collection already exists from a previous example run
@@ -164,3 +167,4 @@ async function importConcertDocuments() {
 }
 
 importConcertDocuments()
+
